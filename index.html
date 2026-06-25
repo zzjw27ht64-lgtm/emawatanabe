@@ -163,7 +163,7 @@ hr{
 <ul>
 <li><a href="#" onclick="showPage('concept')">コンセプト</a></li>
 <li><a href="#" onclick="showPage('gallery')">写真ギャラリー</a></li>
-<li><a href="#" onclick="showPage('gallery')">２</a></li>
+<li><a href="#" onclick="showPage('gallery2')">２</a></li>
 </ul>
 </div>
 
@@ -280,33 +280,44 @@ hr{
 <td></td>
 </tr>
 
-    <div id="2" class="page">
+  
+</div>
 
+    <!-- ギャラリー２ -->
+<div id="page-gallery2" class="page" style="display:none;">
 
-    <div class="gallery-grid">
-      <table class="gallery"border="1">
+<center>
+
+<h2>写真ギャラリー２</h2>
+
+<hr>
+
+<table class="gallery" border="1">
 
 <tr>
 <td><img src="images/IMG_2754.PNG"></td>
 <td><img src="images/IMG_2751.JPG"></td>
 <td><img src="images/IMG_2812.PNG"></td>
 </tr>
-          
-          <tr>
+
+<tr>
 <td><img src="images/IMG_2809.PNG"></td>
 <td><img src="images/IMG_2682.JPG"></td>
 <td><img src="images/IMG_0001.JPG"></td>
-          </tr>
+</tr>
 
-
-
-       <tr>
+<tr>
 <td><img src="images/IMG_2817.JPG"></td>
 <td><img src="images/IMG_2810.JPG"></td>
 <td><img src="images/IMG_2757.PNG"></td>
 </tr>
 
-    </div>
+</table>
+
+<hr>
+
+</center>
+
 </div>
 </table>
 
@@ -342,8 +353,9 @@ function showPage(page){
 
 
     document.getElementById("page-concept").style.display = "none";
-    document.getElementById("page-gallery").style.display = "none";
-
+document.getElementById("page-gallery").style.display = "none";
+document.getElementById("page-gallery2").style.display = "none";
+    
     document.getElementById("page-" + page).style.display = "block";
 }
 
