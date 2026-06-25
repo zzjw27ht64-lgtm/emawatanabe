@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+<meta charset="UTF-8">
+<title>グラフィックアーツⅣ課題</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Meiryo,sans-serif;
+    background:#0000FF;
+}
+
+#header{
+    height:170px;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    background:#0000FF;
+}
+#header img{
+    height:170px;
+transform: scaleX(1.5);
+    transform-origin: left center;
+border-radius: 10px;
+}
+
+#header h1{
+    margin-left:20px;
+    color:white;
+    font-size:48px;
+    font-weight:bold;
+    margin-top:0;
+    margin-bottom:0;
+}
+
+
+#main{
+    display:flex;
+    height:calc(100vh - 170px);
+}
+
+#menu{
+    width:200px;
+    background:#0000FF;
+    overflow-y:auto;
+    padding:15px;
+    box-sizing:border-box;
+    border-right:2px solid #999;
+}
+
+#menu h2{
+    text-align:center;
+}
+
+#menu ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+#menu li{
+    margin:10px 0;
+}
+
+#menu a{
+    text-decoration:none;
+    color:navy;
+    font-weight:bold;
+}
+
+#content{
+    flex:1;
+    background-image:url("images/backwall.png");
+    background-repeat:repeat;
+background-size:50%;
+    overflow-y:auto;
+    padding:30px;
+    box-sizing:border-box;
+}
+
+.page{
+    width:100%;
+}
+
+
+
+#concept-box{
+    background: rgba(255, 255, 255, 0.55);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+#concept-box h2{
+    color: red;
+}
+
+
+#modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#modal img{
+    max-width:90%;
+    max-height:90%;
+}
+
+
+
+/* ギャラリー */
+.gallery td{
+    padding:18px;
+    text-align:center;
+    vertical-align:top;
+}
+
+.gallery img{
+    width:250px;
+    height:180px;
+    object-fit:cover;
+    border:1px solid #666;
+}
+
+.gallery img:hover{
+    opacity:0.8;
+}
+
+hr{
+    width:90%;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="header">
+  <img src="images/header.PNG" alt="ヘッダー画像">
+
+    <h1>ダミーの文字</h1>
+</div>
+
+<div id="main">
+
+
+
+<!-- メニュー -->
+<div id="menu">
+<h2>メニュー</h2>
+
+<ul>
+<li><a href="#" onclick="showPage('concept')">コンセプト</a></li>
+<li><a href="#" onclick="showPage('gallery')">写真ギャラリー</a></li>
+</ul>
+</div>
+
+
+
+<!-- コンテンツ -->
+<div id="content">
+
+
+<!-- コンセプト -->
+<div id="page-concept" class="page" style="display:none;">
+
+<div id="concept-box">
+<h2>制作コンセプト</h2>
+
+<p>
+私の制作テーマは、ある特定の場所や風景、デザイン、キャラクターといった無関係の固有の存在が、個人の経験を通すことで変容し、無作為に組み合わさって独自のイメージとして再構築される現象です。
+</p>
+
+<p>
+本来、風景や場所、デザインといった世界に存在するあらゆる外部情報には、それぞれ固有の歴史や文脈や役割があります。しかし人はそれら知覚する際その客観的な意味を理解しようとする手間をかけないことがほとんどです。その代わりに、無意識下でそれを経験した時の記憶、感情を通してイメージの統合が行われます。その結果、それらが一つの集合として扱われた際「懐かしい」「不思議」「寂しい」「怖い」といった独自のイメージとして知覚されます。
+</p>
+
+<p>
+そして、それらは一見個人の中で起こる特有の現象に思えますが、実際はある程度共有可能なイメージとして立ち上がる事も少なくありません。
+その例として、近年のインターネットではLiminal Space、Dream core、Vaporwaveなどインターネット上で共有される美学（aesthetic）があります。本来無関係な場所や風景、デザイン、イラスト、画質などのある一定の共通項を持つ要素の集合が共通の感情を想起させる一つのイメージとして再解釈され、命名されることで共感を呼び、拡散されています。</p>
+
+<p>しかし、私達は当然生きている中で全く同じ経験をしたわけではないのにも関わらず、なぜ一定の共通項を持つ画像の集合に近しい感情を想起されるのでしょうか？その一因として、社会生活の中で視覚文化やメディア環境を共有していることが考えられます。共通の風景やデザイン、インターネット文化に繰り返し触れることで、個人の記憶は完全に私的なものではなく、他者とも共有可能なイメージとして形成されていきます。
+</p>
+
+<p>
+さて、版画とは、同一のイメージを複製し、多くの人へ流通させることで文化や視覚体験を共有してきたメディアです。歴史的には宗教画や挿絵、広告などを大量に複製し、人々の共通認識や視覚文化の形成に大きな役割を果たしてきました。
+現代ではインターネットが人々の共通イメージを「○○コア」といった形で拡散する役割を担っています。
+</p>
+<p>
+私はこのようなデジタル空間において自然発生的に行われている、イメージが画像の集積によって共有可能な形へと変容し、流通していく過程を、版画が担ってきたイメージの複製と流通の構造に近いものとして捉えています。すなわち、デジタル画像を「版によって刷り出される像」、HTMLやインターネット空間を「版を通して像を流通させる仕組み」として読み替えることで、現代における版画的な構造を考察できるのではないかと考えています。
+</p>
+
+<p>
+本制作では、私自身の経験から形成されたイメージを、画像・文字・デザイン要素をHTMLという同一空間上に集積することで表現します。そして、HTMLを用いたウェブページという形式は、現代における版画的なメディアとして捉え得るのかを考察することを目的としています。</p>
+
+</div>
+
+</div>
+
+<!-- ギャラリー -->
+<div id="page-gallery" class="page" style="display:none;">
+
+<center>
+
+<h2>丹沢湖フォトギャラリー</h2>
+
+<hr>
+
+<table class="gallery"border="1">
+
+<tr>
+<td><img src="images/IMG_2726.PNG"></td>
+<td><img src="images/IMG_2727.PNG"></td>
+<td><img src="images/IMG_2728.PNG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2729.PNG"></td>
+<td><img src="images/IMG_2730.PNG"></td>
+<td><img src="images/IMG_2731.PNG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2732.PNG"></td>
+<td><img src="images/IMG_2733.PNG"></td>
+<td><img src="images/IMG_2734.PNG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2735.PNG"></td>
+<td><img src="images/IMG_2736.PNG"></td>
+<td><img src="images/IMG_2737.PNG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2738.PNG"></td>
+<td><img src="images/IMG_2739.PNG"></td>
+<td><img src="images/IMG_2740.PNG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2741.PNG"></td>
+<td><img src="images/IMG_2742.PNG"></td>
+<td><img src="images/IMG_2743.PNG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2744.PNG"></td>
+<td><img src="images/IMG_2745.JPG"></td>
+<td><img src="images/IMG_2746.JPG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2747.JPG"></td>
+<td><img src="images/IMG_2748.PNG"></td>
+<td><img src="images/IMG_2749.PNG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2755.JPG"></td>
+<td><img src="images/IMG_2751.JPG"></td>
+<td><img src="images/IMG_2754.PNG"></td>
+</tr>
+
+<tr>
+<td><img src="images/IMG_2757.PNG"></td>
+<td><img src="images/IMG_2756.JPG"></td>
+<td></td>
+</tr>
+
+</table>
+
+<hr>
+
+</center>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="modal" onclick="closeModal()">
+    <img id="modal-img">
+</div>
+
+<script>
+window.addEventListener("DOMContentLoaded", function(){
+
+    showPage("gallery");
+
+    const images = document.querySelectorAll(".gallery img");
+
+    for(let i = 0; i < images.length; i++){
+        images[i].addEventListener("click", function(){
+            openModal(this.src);
+        });
+    }
+
+});
+function showPage(page){
+
+
+    document.getElementById("page-concept").style.display = "none";
+    document.getElementById("page-gallery").style.display = "none";
+
+    document.getElementById("page-" + page).style.display = "block";
+}
+
+function openModal(src){
+    const modal = document.getElementById("modal");
+    const img = document.getElementById("modal-img");
+
+    img.src = src;
+    modal.style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
